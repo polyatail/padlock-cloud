@@ -39,6 +39,10 @@ func (h *RequestAuthToken) Handle(w http.ResponseWriter, r *http.Request, auth *
 		tType = "api"
 	}
 
+	if email != "andrewscz@gmail.com" {
+		return &BadRequest{"invalid email"}
+	}
+
 	// Make sure email field is set
 	if email == "" {
 		return &BadRequest{"no email provided"}
